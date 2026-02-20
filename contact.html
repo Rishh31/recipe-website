@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tasty Recipes - Contact & Reviews</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+  <link rel="stylesheet" href="contact.css">
+</head>
+<body>
+
+  <!-- ===== HEADER WITH SLIDE MENU ===== -->
+  <header>
+    <div class="navbar">
+      <div class="logo">
+        <h1>Tasty<span>Recipes</span></h1>
+      </div>
+      
+      <!-- Hamburger Icon -->
+      <div class="menu-toggle" id="mobile-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+
+      <!-- Slide Menu -->
+      <nav class="nav-menu">
+        <ul>
+          <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+          <li><a href="recipe.html"><i class="fas fa-utensils"></i> Recipes</a></li>
+          <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
+          <li><a href="contact.html" class="active"><i class="fas fa-envelope"></i> Contact</a></li>
+          <li><a href="login.html" class="btn-login"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== CONTACT SECTION ===== -->
+  <section class="contact-section">
+    <div class="contact-container">
+      
+      <div class="section-title">
+        <h2>Get In Touch</h2>
+        <p>We'd love to hear from you! Share your feedback or ask any questions.</p>
+      </div>
+
+      <div class="contact-info">
+        <div class="info-card">
+          <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
+          <h3>Address</h3>
+          <p>123 Food Street, Flavor Town, India</p>
+        </div>
+        <div class="info-card">
+          <div class="icon"><i class="fas fa-phone-alt"></i></div>
+          <h3>Phone</h3>
+          <p>+91 98765 43210</p>
+        </div>
+        <div class="info-card">
+          <div class="icon"><i class="fas fa-envelope"></i></div>
+          <h3>Email</h3>
+          <p>support@tastyrecipes.com</p>
+        </div>
+      </div>
+
+      <div class="review-section">
+        <h3><i class="fas fa-pen"></i> Leave a Review</h3>
+        <form>
+          <div class="input-group">
+            <input type="text" placeholder="Your Name" required />
+            <input type="email" placeholder="Your Email" required />
+          </div>
+          <textarea placeholder="Write your review here..." rows="4" required></textarea>
+
+          <div class="rating">
+            <span>★</span>
+            <span>★</span>
+            <span>★</span>
+            <span>★</span>
+            <span>★</span>
+          </div>
+
+          <button type="submit" class="submit-btn">Submit Review</button>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Tasty Recipes | Made with <i class="fas fa-heart"></i> for food lovers</p>
+  </footer>
+
+  <script>
+    // Mobile Menu Toggle
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navMenu = document.querySelector('.nav-menu');
+
+    mobileMenu.addEventListener('click', () => {
+      mobileMenu.classList.toggle('active');
+      navMenu.classList.toggle('active');
+    });
+
+    // Close menu when clicking a link
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+        navMenu.classList.remove('active');
+      });
+    });
+
+    // Star Rating
+    const stars = document.querySelectorAll('.rating span');
+    stars.forEach((star, index) => {
+      star.addEventListener('click', () => {
+        stars.forEach((s, i) => s.classList.toggle('active', i <= index));
+      });
+    });
+  </script>
+</body>
+</html>
